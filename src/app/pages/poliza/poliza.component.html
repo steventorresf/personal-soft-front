@@ -1,0 +1,134 @@
+<div>
+    <h1>Radicación de pólizas</h1>
+</div>
+<div class="mt-5">
+    <form [formGroup]="myForm" autocomplete="off" autocapitalize="">
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Información del cliente</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="m-row">
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Número de identificación</mat-label>
+                                <input matInput formControlName="identificacion">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-50">
+                            <button mat-flat-button type="button" color="primary" class="ml-5"
+                                (click)="openSelectionClient()">Buscar cliente</button>
+                        </div>
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nombre cliente</mat-label>
+                                <input matInput formControlName="nombre">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Fecha nacimiento</mat-label>
+                                <input matInput [matDatepicker]="pickerFechaNacimiento" formControlName="fechaNacimiento">
+                                <mat-datepicker-toggle matSuffix [for]="pickerFechaNacimiento"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerFechaNacimiento></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Ciudad residencia</mat-label>
+                                <input matInput formControlName="ciudadResidencia">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Dirección residencia</mat-label>
+                                <input matInput formControlName="direccionResidencia">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="mt-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Información del vehículo</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="m-row">
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Placa vehículo</mat-label>
+                                <input matInput formControlName="placaAutomotor">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Modelo vehículo</mat-label>
+                                <input matInput formControlName="modeloAutomotor">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-checkbox formControlName="tieneInspeccion">¿Tiene inspección?</mat-checkbox>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="mt-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Información de la póliza</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="m-row">
+                        <div class="m-col-50">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nombre plan póliza</mat-label>
+                                <input matInput formControlName="planPoliza">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Valor máximo</mat-label>
+                                <input matInput formControlName="valorMaximo">
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <button mat-flat-button type="button" color="primary" class="ml-5"
+                                (click)="openSelectionPlanPoliza()">Buscar plan póliza</button>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Fecha toma poliza</mat-label>
+                                <input matInput [matDatepicker]="pickerTomaPoliza" formControlName="fechaTomaPoliza">
+                                <mat-datepicker-toggle matSuffix [for]="pickerTomaPoliza"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerTomaPoliza></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Fecha inicio vigencia</mat-label>
+                                <input matInput [matDatepicker]="pickerInicioVigencia" formControlName="fechaInicioVigencia">
+                                <mat-datepicker-toggle matSuffix [for]="pickerInicioVigencia"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerInicioVigencia></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="m-col-25">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Fecha fin vigencia</mat-label>
+                                <input matInput [matDatepicker]="pickerFinVigencia" formControlName="fechaFinVigencia">
+                                <mat-datepicker-toggle matSuffix [for]="pickerFinVigencia"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerFinVigencia></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="text-center mt-5 pb-10">
+            <button mat-flat-button type="button" color="primary" [disabled]="myForm.invalid || !isSelCliente || !isSelPoliza" (click)="submitConfirmation()">Radicar póliza</button>
+        </div>
+    </form>
+</div>

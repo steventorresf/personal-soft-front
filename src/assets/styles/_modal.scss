@@ -1,0 +1,14 @@
+.header-modal {
+    position: relative;
+    margin-bottom: 20px;
+
+    .mat-icon.close {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &:hover {
+            background-color: lightgray;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<div class="header-modal">
+    <h4>Detalle de póliza</h4>
+    <mat-icon class="close" (click)="close()">close</mat-icon>
+</div>
+<div class="body-modal">
+    <div class="m-row">
+        <div class="m-col-50">
+            <strong># póliza:</strong>
+            <p>{{ formData?.noPoliza }}</p>
+        </div>
+        <div class="m-col-50">
+            <strong>Nombre cliente:</strong>
+            <p>{{ formData?.nombreCliente }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Identificación:</strong>
+            <p>{{ formData?.identificacion }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Fecha nacimiento:</strong>
+            <p>{{ formData?.fechaNacimiento.toString().substring(0, 10) }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Ciudad residencia</strong>
+            <p>{{ formData?.ciudadResidencia }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Dirección residencia</strong>
+            <p>{{ formData?.direccionResidencia }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Placa automotor</strong>
+            <p>{{ formData?.placaAutomotor }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Modelo automotor</strong>
+            <p>{{ formData?.modeloAutomotor }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>¿Tiene inspección?</strong>
+            <p>{{ formData?.tieneInspeccion ? 'Si' : 'No' }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Plan póliza:</strong>
+            <p>{{ formData?.nombrePlanPoliza }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Valor máximo cubierto por la póliza</strong>
+            <p>{{ formData?.valorMaximo | number }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Fecha toma póliza:</strong>
+            <p>{{ formData?.fechaTomaPoliza.toString().substring(0, 10) }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Fecha inicio vigencia:</strong>
+            <p>{{ formData?.fechaInicioVigencia.toString().substring(0, 10) }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Fecha fin vigencia:</strong>
+            <p>{{ formData?.fechaFinVigencia.toString().substring(0, 10) }}</p>
+        </div>
+        <div class="m-col-50 mt-5">
+            <strong>Coberturas:</strong>
+            <p *ngFor="let item of formData?.coberturas">
+                - {{ item }}
+            </p>
+        </div>
+    </div>
+</div>

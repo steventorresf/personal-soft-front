@@ -1,0 +1,32 @@
+.overlay-spinner {
+    cursor: wait;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(74, 74, 74, .5);
+    z-index: 99999;
+
+    .overlay-content {
+        background-color: white;
+        padding: 50px;
+        border-radius: 15px;
+
+        .mat-spinner circle, .mat-progress-spinner circle {
+            stroke: #1976d2 !important;
+        }
+    }
+
+    .spinner-content {
+        text-align: center;
+        margin-top: 3.5rem;
+
+        .text-loading {
+            font-weight: 500;
+        }
+    }
+}

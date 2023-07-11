@@ -1,0 +1,15 @@
+.main-login {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .mat-card {
+        width: 30%;
+        border: 1px solid lightgray;
+
+        .mat-flat-button {
+            width: 100%;
+        }
+    }
+}

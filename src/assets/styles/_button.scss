@@ -1,0 +1,27 @@
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+    background-color: lightgray;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background-color: #1976d2;
+}
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+    color: #1976d2;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: #1976d2 !important;
+
+    &:focus {
+        box-shadow: 0 0 0 3px #1976d2 !important;
+    }
+}

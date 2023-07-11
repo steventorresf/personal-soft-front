@@ -1,0 +1,72 @@
+<div>
+    <h1>Consulta de pólizas</h1>
+</div>
+<div class="mt-5">
+    <form [formGroup]="myForm">
+        <div class="m-row">
+            <div class="m-col-25">
+                <mat-form-field appearance="outline">
+                    <mat-label># póliza</mat-label>
+                    <input matInput formControlName="noPoliza">
+                </mat-form-field>
+            </div>
+            <div class="m-col-25">
+                <mat-form-field appearance="outline">
+                    <mat-label>Placa automotor</mat-label>
+                    <input matInput formControlName="placaAutomotor">
+                </mat-form-field>
+            </div>
+            <div class="m-col-25">
+                <div class="text-center mt-2">
+                    <button type="button" mat-flat-button color="primary" (click)="filtrar()">Filtrar</button>
+                    <button type="button" class="ml-2" mat-flat-button (click)="limpiar()">Limpiar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="mt-5">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+        <ng-container matColumnDef="noPoliza">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header># póliza</th>
+            <td mat-cell *matCellDef="let row">
+                <a (click)="verDetalle(row)">{{ row.noPoliza }}</a>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="identificacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificación</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.identificacion }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre cliente</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.nombreCliente }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="placa">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Placa automotor</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.placaAutomotor }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="modelo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Modelo automotor</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.modeloAutomotor }}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell text-center" colspan="8">No hay registros</td>
+        </tr>
+    </table>
+
+    <mat-paginator #paginator showFirstLastButtons [length]="opPag.length" [pageIndex]="opPag.pageIndex"
+        [pageSize]="opPag.pageSize" [pageSizeOptions]="opPag.pageSizeOptions" (page)="getDataSource()">
+    </mat-paginator>
+</div>

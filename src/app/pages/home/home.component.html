@@ -1,0 +1,41 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            reply_all
+        </mat-icon>
+    </button>
+    Prestamo fácil
+
+    <span class="example-spacer"></span>
+
+    <button class="btn-sesion-close" mat-flat-button color="primary" (click)="cerrarSesion()">
+        <mat-icon>power_settings_new</mat-icon>
+        Cerrar sesión
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+        <!-- <img class="avatar mat-elevation-z8" style="width: 100px; height: 120px;" src="../assets/images/foto.jpg" /> -->
+
+        <h4 class="name">{{ userData?.nombreUsuario.toString().toUpperCase() }}</h4>
+        <p class="designation">{{ userData?.nombreCompleto }}</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" *ngFor="let item of arrayMenu" (click)="clickItemMenu(item)">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.name }}</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
